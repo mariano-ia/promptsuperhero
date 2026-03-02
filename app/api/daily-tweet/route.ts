@@ -9,13 +9,17 @@ function formatDateUTC() {
 }
 
 export async function GET() {
-  // Simple deterministic daily tweet so Zapier can pull it.
-  // Later we can switch to reading from a changelog or generating via LLM.
+  // Deterministic daily tweet so Zapier can pull it.
+  // CTA included 3x/week (Mon/Wed/Fri) to avoid fatigue.
   const day = formatDateUTC();
+  const dow = new Date().getUTCDay(); // 0 Sun .. 6 Sat
+  const withCta = dow === 1 || dow === 3 || dow === 5;
 
-  const text =
-    `Ship log (${day}): Wired a 3-free-credits paywall + Stripe Checkout flow for PromptSuperhero. ` +
-    `Next: redesigning UX around one job—customer support replies—then launching 20 programmatic SEO pages for high-intent support scenarios.`;
+  let text =
+    `Ship log (${day}): Shipped Stripe paywall + 3 free replies for PromptSuperhero. ` +
+    `Next: better UX for customer support replies + programmatic SEO pages (refunds, WISMO, shipping delays).`;
+
+  if (withCta) text += ` Try it: https://promptsuperhero.com`;
 
   return NextResponse.json({ text });
 }

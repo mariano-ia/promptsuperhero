@@ -9,13 +9,19 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "PromptFácil — Convierte tus ideas en prompts profesionales",
+  title: "PromptSuperhero — Customer Support Reply Generator",
   description:
-    "Transformá cualquier deseo simple en un prompt estructurado y profesional para ChatGPT, Claude, Gemini o Midjourney. Gratis, rápido y sin registro.",
-  keywords: ["prompt engineering", "ChatGPT", "Claude", "Gemini", "Midjourney", "IA", "prompt generator"],
+    "Generate professional customer support replies (refunds, shipping delays, angry customers) in seconds. 3 free replies, then subscribe.",
+  keywords: [
+    "customer support reply generator",
+    "refund response",
+    "shipping delay apology",
+    "de-escalation",
+    "ecommerce support",
+  ],
   openGraph: {
-    title: "PromptFácil",
-    description: "Convierte tus ideas en prompts profesionales para IA",
+    title: "PromptSuperhero",
+    description: "Generate professional customer support replies in seconds.",
     type: "website",
   },
 };
@@ -26,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={inter.variable}>
+    <html lang="en" className={inter.variable}>
       <body className="antialiased font-sans">{children}</body>
     </html>
   );

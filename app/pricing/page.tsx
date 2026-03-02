@@ -25,7 +25,7 @@ export default function PricingPage() {
       <div className="w-full max-w-xl rounded-2xl border border-white/10 bg-white/5 p-8">
         <h1 className="text-3xl font-bold tracking-tight">Support Replies Pro</h1>
         <p className="mt-2 text-white/50">
-          Unlimited support reply generations + tone presets + saved templates.
+          <span className="text-white font-semibold">$9/month</span> · Unlimited reply generations + tone presets.
         </p>
         <ul className="mt-6 space-y-2 text-white/70 text-sm">
           <li>• De-escalation replies</li>
