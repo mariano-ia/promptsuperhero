@@ -28,9 +28,15 @@ export default function Home() {
         body: JSON.stringify({ userInput, platform }),
       });
 
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
 
       if (!res.ok) {
+        // Paywall handling
+        if (res.status === 402 || data.code === "PAYWALL") {
+          window.location.href = data.pricingUrl ?? "/pricing";
+          return;
+        }
+
         setError(data.error ?? "Algo salió mal. Intentá de nuevo.");
         return;
       }
